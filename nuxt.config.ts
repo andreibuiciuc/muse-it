@@ -7,5 +7,37 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {}
     }
+  },
+  runtimeConfig: {
+    spotifyClientId: '',
+    spotifyAuthUrl: '',
+    spotifyRedirectUri: '',
+    spotifyTokenUrl: '',
+    spotifyClientSecret: '',
+  },
+  routeRules: {
+    'dashboard': {
+      ssr: false,
+    },
+    '/api/**': {
+      cors: true,
+    }
+  },
+  $production: {
+    nitro: {
+      storage: {
+        users: {
+          driver: 'redis'
+        }
+      }
+    }
+  },
+  nitro: {
+    storage: {
+      users: {
+        driver: 'fs',
+        base: '.cache'
+      }
+    }
   }
 })
