@@ -17,7 +17,6 @@ export default defineEventHandler(async _ => {
   await useStorage('users').setItem('authState', state);
 
   return {
-    // redirectUrl: `${config.spotifyAuthUrl}?${stringify(payload)}`,
-    redirectUrl: ''
+    redirectUrl: `${config.spotifyAuthUrl}?${stringify(payload)}`
   };
 });

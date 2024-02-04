@@ -55,6 +55,6 @@ export default defineEventHandler(async (event) => {
     throw createMuseError({
       statusCode: 500,
       statusMessage: 'error has occured'
-    })
+    });
   }
 });
