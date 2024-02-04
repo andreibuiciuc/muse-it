@@ -25,19 +25,25 @@ async function authorizeSpotify() {
   } else if (error.value) {
     throw showMuseError({ ...error.value, fatal: true });
   }
+
 }
 
 async function handleAuthorizationSuccess(code: string, state: string) {
   const { data, error } = await useFetch('/api/auth/token', { params: { code, state }});
 
   if (data.value) {
-    console.log(data.value.access_token, data.value.refresh_token);
+    localStorage.setItem('accessToken', data.value.access_token);
+    localStorage.setItem('refreshToken', data.value.refresh_token);
   } else if (error.value) {
     throw showMuseError({ ...error.value, fatal: true });
   }
 }
 
-useAsyncData(() => initiateSpotifyAuthorization());
+onMounted(async () => {
+  await nextTick();
+  await initiateSpotifyAuthorization();
+});
+
 </script>
 
 <template>

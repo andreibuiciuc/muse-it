@@ -16,9 +16,6 @@ export default defineNuxtConfig({
     spotifyClientSecret: '',
   },
   routeRules: {
-    'dashboard': {
-      ssr: false,
-    },
     '/api/**': {
       cors: true,
     }
