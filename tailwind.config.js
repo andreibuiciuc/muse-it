@@ -3,10 +3,15 @@ export default {
   content: [
     './components/**/*.vue',
     './pages/**/*.vue',
-    './app.vue'
+    './error.vue',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'muse-blue': '#3B66EC',
+        'muse-dark': '#191919'
+      },
+    },
   },
   plugins: [],
 }

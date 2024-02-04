@@ -13,10 +13,15 @@ defineProps({
 </script>
 
 <template>
-  <div>
-    <h1>{{ error.statusCode }}</h1>
-    <h2>{{ error.statusMessage  }}</h2>
-    <h2>{{ error.message }}</h2>
-    <button @click="clearMuseError({ redirect: '/' })">Go back home</button>
+  <div class="w-screen h-screen flex flex-col justify-center items-center p-20">
+    <div class="flex flex-col items-center">
+      <h1 class="text-4xl text-muse-blue font-bold mb-2">{{ error.statusCode }}</h1>
+      <h2 class="text-muse-dark mb-2">{{ error.statusMessage  }}</h2>
+      <button
+        class="text-muse-blue" 
+        @click="clearMuseError({ redirect: '/' })" 
+      >Go back home</button>
+    </div>
+    <img src="~/assets/svg/404.svg" class="w-1/2" />
   </div>
-</template>
+</template> 

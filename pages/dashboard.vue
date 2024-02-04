@@ -44,6 +44,11 @@ onMounted(async () => {
   await initiateSpotifyAuthorization();
 });
 
+onUnmounted(() => {
+  localStorage.removeItem('acessToken');
+  localStorage.removeItem('refreshToken');
+});
+
 </script>
 
 <template>
